@@ -11,11 +11,17 @@
 
 // [ 应用入口文件 ]
 
+//开启调试
+define('APP_DEBUG', true);
+
+// 绑定Home模块到当前入口文件
+define('BIND_MODULE', 'admin');
+
 // 定义应用目录
 define('APP_PATH', __DIR__ . '/../application/');
 
 //配置文件路径
-define('CONF_PATH', __DIR__ . '/../config/');
+define('CONF_PATH', __DIR__.'/../config/');
 
 // 加载框架引导文件
 require __DIR__ . '/../thinkphp/start.php';
