@@ -10,7 +10,7 @@ class Index extends Base
         return $this->fetch();
     }
 
-    public function config()
+    public function check_config()
     {
         var_dump(Config::get());
     }
