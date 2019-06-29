@@ -1,15 +1,14 @@
 <?php
 namespace app\admin\controller;
 
-class Index
+use think\Config;
+use think\Env;
+
+class Index extends Base
 {
     public function index()
     {
-        return 'I Love Admin';
+        return $this->fetch();
     }
 
-    public function test()
-    {
-        return test();
-    }
 }
