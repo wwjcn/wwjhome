@@ -1,6 +1,8 @@
 <?php
 namespace app\admin\controller;
 
+use think\Config;
+
 class Index extends Base
 {
     public function index()
@@ -8,4 +10,8 @@ class Index extends Base
         return $this->fetch();
     }
 
+    public function config()
+    {
+        var_dump(Config::get());
+    }
 }
