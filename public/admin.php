@@ -23,5 +23,9 @@ define('APP_PATH', __DIR__ . '/../application/');
 //配置文件路径
 define('CONF_PATH', __DIR__.'/../config/');
 
+//禁用缓存
+define('DB_FIELD_CACHE',false);
+define('HTML_CACHE_ON',false);
+
 // 加载框架引导文件
 require __DIR__ . '/../thinkphp/start.php';
