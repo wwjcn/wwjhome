@@ -13,7 +13,8 @@
 
 //兼容PATH_INFO
 if (!isset($_SERVER['PATH_INFO'])) {
-    $_SERVER['PATH_INFO'] = substr(strstr($_SERVER['REQUEST_URI'], $_SERVER['SCRIPT_NAME']), strlen($_SERVER['SCRIPT_NAME']));
+    $filename = '/' . basename($_SERVER['SCRIPT_FILENAME']);
+    $_SERVER['PATH_INFO'] = substr(strstr($_SERVER['REQUEST_URI'], $filename), strlen($filename));
 }
 
 //开启调试
