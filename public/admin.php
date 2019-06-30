@@ -13,9 +13,8 @@
 
 //兼容PATH_INFO
 if (!isset($_SERVER['PATH_INFO'])) {
-    $_SERVER['PATH_INFO'] = strstr('/admin.php', $_SERVER['REQUEST_URI']);
+    $_SERVER['PATH_INFO'] = substr(strstr($_SERVER['REQUEST_URI'], '/admin.php'), strlen('/admin.php'));
 }
-
 
 //开启调试
 define('APP_DEBUG', true);
