@@ -27,5 +27,16 @@ define('CONF_PATH', __DIR__.'/../config/');
 define('DB_FIELD_CACHE',false);
 define('HTML_CACHE_ON',false);
 
-// 加载框架引导文件
-require __DIR__ . '/../thinkphp/start.php';
+
+// 加载框架基础文件
+require __DIR__ . '/../thinkphp/base.php';
+
+// 绑定当前入口文件到admin模块
+\think\Route::bind('admin');
+
+// 关闭admin模块的路由
+\think\App::route(false);
+
+// 执行应用
+\think\App::run()->send();
+
