@@ -11,6 +11,12 @@
 
 // [ 应用入口文件 ]
 
+//兼容PATH_INFO
+if (!isset($_SERVER['PATH_INFO'])) {
+    $_SERVER['PATH_INFO'] = $_SERVER['REQUEST_URI'];
+}
+
+
 //开启调试
 define('APP_DEBUG', true);
 
@@ -26,6 +32,7 @@ define('CONF_PATH', __DIR__.'/../config/');
 //禁用缓存
 define('DB_FIELD_CACHE',false);
 define('HTML_CACHE_ON',false);
+var_dump($_SERVER);exit;
 
 
 // 加载框架基础文件
@@ -36,6 +43,7 @@ require __DIR__ . '/../thinkphp/base.php';
 
 // 关闭admin模块的路由
 \think\App::route(false);
+
 
 // 执行应用
 \think\App::run()->send();
