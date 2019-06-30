@@ -13,7 +13,7 @@
 
 //兼容PATH_INFO
 if (!isset($_SERVER['PATH_INFO'])) {
-    $_SERVER['PATH_INFO'] = strstr('admin.php', $_SERVER['REQUEST_URI']);
+    $_SERVER['PATH_INFO'] = strstr('/admin.php', $_SERVER['REQUEST_URI']);
 }
 
 
