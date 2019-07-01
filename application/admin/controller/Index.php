@@ -10,8 +10,8 @@ class Index extends Base
         return $this->fetch();
     }
 
-    public function check_config()
+    public function welcome()
     {
-        var_dump(Config::get());
+        return $this->fetch();
     }
 }
