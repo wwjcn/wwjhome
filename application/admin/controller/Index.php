@@ -1,15 +1,17 @@
 <?php
 namespace app\admin\controller;
 
-class Index
+use think\Config;
+
+class Index extends Base
 {
     public function index()
     {
-        return 'I Love Admin';
+        return $this->fetch();
     }
 
-    public function test()
+    public function check_config()
     {
-        return test();
+        var_dump(Config::get());
     }
 }
