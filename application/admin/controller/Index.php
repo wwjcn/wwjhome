@@ -11,6 +11,7 @@ class Index extends Base
     }
 
     public function welcome()
+
     {
         return $this->fetch();
     }

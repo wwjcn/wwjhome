@@ -25,7 +25,11 @@ return [
     // 入口自动绑定模块
     'auto_bind_module'       => false,
     // 注册的根命名空间
-    'root_namespace'         => [],
+    'root_namespace'         =>[
+/*        'common\logic'   => ROOT_PATH . 'common/logic',
+        'common\visitor' => ROOT_PATH . 'common/visitor',
+        'common\model'   => ROOT_PATH . 'common/model',*/
+    ],
     // 扩展函数文件
     'extra_file_list'        => [THINK_PATH . 'helper' . EXT],
     // 默认输出类型
