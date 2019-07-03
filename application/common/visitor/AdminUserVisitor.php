@@ -44,13 +44,13 @@ class AdminUserVisitor extends BaseVisitor
     }
 
     //注册登录管理员信息
-    public function assign(array $user_info)
+    /*public function assign(array $user_info)
     {
         $this->info = $user_info;
         if ($user_info) {
             $this->has_login = true;
         }
-    }
+    }*/
 
     /**
      * 获取用户详细信息

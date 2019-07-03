@@ -30,9 +30,9 @@ abstract class BaseVisitor
         }
     }
 
-    public function assign(array $user_info)
+    public function assign(array $userInfo)
     {
-        session($this->_infoKey, $user_info);
+        session($this->_infoKey, $userInfo);
     }
 
     /**

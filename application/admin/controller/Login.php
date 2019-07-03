@@ -38,5 +38,7 @@ class Login extends Base
             return $this->fetch();
         }
         $this->_visitor->assign($user);
+//        print_r(session('adminUserInfo'));
+        return $this->ajaxReturn($user);
     }
 }

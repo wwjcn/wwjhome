@@ -16,7 +16,7 @@ class Base extends Controller
 {
     protected $_visitor = null;
     protected $_loginController = 'login';
-    protected $_loginAction = 'dologin';
+//    protected $_loginAction = 'dologin';
 
     /**
      * Desc: 控制器初始化
@@ -39,10 +39,9 @@ class Base extends Controller
     {
         $request = Request::instance();
         $requestController = strtolower($request->controller());
-        $requestAction = strtolower($request->action());
-//        var_dump($requestController, $this->_loginController, $requestAction, $this->_loginAction);exit;
-        if (($requestController == $this->_loginController) &&
-            ($requestAction == $this->_loginAction)) {
+//        $requestAction = strtolower($request->action());
+        if (($requestController == $this->_loginController)
+            /*&& ($requestAction == $this->_loginAction)*/) {
             return true;
         }
         if (!($this->_visitor->hasLogin)){
@@ -61,4 +60,14 @@ class Base extends Controller
         $this->_visitor = visitor('AdminUser');
         return true;
     }
+
+    /**
+     * Desc: 接口json数据返回
+     * @return boolean
+     */
+    public function ajaxReturn($data, $errorCode = 0, $errorMsg = '')
+    {
+        return json(compact('data', 'errorCode', 'errorMsg'));
+    }
+
 }

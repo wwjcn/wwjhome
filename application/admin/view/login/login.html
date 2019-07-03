@@ -29,20 +29,22 @@
                     data:data.field,
                     dataType:'JSON',
                     success:function(data){
-                        if(data.status='0'){
-                            layer.msg(data.msg,{icon:6});
-                            location.href=location.href;//刷新页面
-                        }
-                        else
-                            layer.msg(data.msg,{icon:5});
+                        console.log(data);
+                        if(data.errorCode='0'){
+                            layer.msg('登陆成功',{icon:6});
+                            console.log("{:url('index/index')}");
+                            location.href = "{:url('index/index')}";
+                        }else
+                            layer.msg(data.errorMsg,{icon:5});
+
                     },
                     error:function (data) {
-                        layer.msg(data.msg,{icon:5});
+                        layer.msg(data.errorMsg,{icon:5});
                     }
                 });
-                layer.msg(JSON.stringify(data.field),function(){
+                /*layer.msg(JSON.stringify(data.field),function(){
                     location.href='index.html'
-                });
+                });*/
                 return false;
             });
         });
