@@ -18,7 +18,6 @@ if (!function_exists('logic')) {
 
     function logic($logicName)
     {
-        var_dump($logicName);
         return Loader::model($logicName, 'logic');
     }
 }

@@ -19,7 +19,7 @@ class AdminUserVisitor extends BaseVisitor
         $info = session($this->_infoKey);
         if (!empty($info) && !empty($info['user_id'])) {
             $this->_info = $info;
-            $this->has_login = true;
+            $this->hasLogin = true;
         } else {
             $this->_info = array(
                 'user_id' => 0,
