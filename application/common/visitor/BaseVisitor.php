@@ -30,6 +30,9 @@ abstract class BaseVisitor
         }
     }
 
+    /**
+     * 注册登录管理员信息
+     */
     public function assign(array $userInfo)
     {
         session($this->_infoKey, $userInfo);

@@ -11,6 +11,7 @@ namespace app\admin\controller;
 
 use think\Controller;
 use think\Request;
+use think\View;
 
 class Base extends Controller
 {
@@ -29,6 +30,19 @@ class Base extends Controller
         //验证是否登录
         $this->_checkLogin();
 
+        //share公共模板变量
+        $this->_shareGlobalVariable();
+
+    }
+
+    /**
+     * Desc: 注册访问者
+     * @return boolean
+     */
+    public function _initVisitor()
+    {
+        $this->_visitor = visitor('AdminUser');
+        return true;
     }
 
     /**
@@ -52,13 +66,12 @@ class Base extends Controller
     }
 
     /**
-     * Desc: 注册访问者
+     * Desc: 公共模板变量
      * @return boolean
      */
-    public function _initVisitor()
+    public function _shareGlobalVariable()
     {
-        $this->_visitor = visitor('AdminUser');
-        return true;
+        View::share('adminInfo', $this->_visitor->_get_detail());
     }
 
     /**

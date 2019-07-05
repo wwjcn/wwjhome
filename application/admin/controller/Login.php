@@ -40,4 +40,16 @@ class Login extends Base
         $this->_visitor->assign($user);
         return $this->ajaxReturn($user);
     }
+
+    /**
+     * User: wangwj
+     * Date: 2019/6/28
+     * Time: 11:49
+     * Desc: 登出
+     */
+    public function logout()
+    {
+        $this->_visitor->logout();
+        return redirect(url('login/login'));
+    }
 }
