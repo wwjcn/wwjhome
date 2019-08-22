@@ -7,6 +7,8 @@
  */
 namespace app\common\logic;
 
+use think\Loader;
+
 class BaseLogic {
 
     protected $_errorCode = 0;    //错误码
@@ -32,5 +34,17 @@ class BaseLogic {
             'errorCode' => $this->_errorCode,
             'errorMsg' => $this->_errorMsg,
         );
+    }
+
+    //读取业务逻辑错误原因
+    public function getErrorMsg()
+    {
+        return $this->_errorMsg;
+    }
+
+    //读取业务逻辑错误码
+    public function getErrorCode()
+    {
+        return $this->_errorCode;
     }
 }

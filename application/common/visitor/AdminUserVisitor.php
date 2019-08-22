@@ -23,7 +23,7 @@ class AdminUserVisitor extends BaseVisitor
         } else {
             $this->_info = array(
                 'user_id' => 0,
-                'user_name' => '',
+                'username' => '',
                 'is_super' => 0,
                 'user_roles' => array()
             );
@@ -59,15 +59,7 @@ class AdminUserVisitor extends BaseVisitor
      */
     public function _get_detail()
     {
-        /*$model_member = D('Member');
-        $detail = $model_member->get_user($this->_info['user_id'], 'user_id, user_name, email, real_name, logins');
-        $detail['manage_store'] = 0;*/
-        return array(
-            'user_id' => 1,
-            'user_name' => 'wwj',
-            'is_super' => 0,
-            'user_roles' => array()
-        );
+        return session($this->_infoKey);
     }
 
 }

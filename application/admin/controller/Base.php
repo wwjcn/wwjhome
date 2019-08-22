@@ -78,9 +78,21 @@ class Base extends Controller
      * Desc: 接口json数据返回
      * @return boolean
      */
-    public function ajaxReturn($data, $errorCode = 0, $errorMsg = '')
+    public function ajaxReturn($data = [], $errorCode = 0, $errorMsg = '')
     {
+        header('Content-type:application/json;charset=uft-8');
         return json(compact('data', 'errorCode', 'errorMsg'));
     }
 
+    /**
+     * Desc: 失败，接口json数据
+     * @return boolean
+     */
+    public function fail($errorMsg = '')
+    {
+        $data = [];
+        $errorCode = 99;
+        header('Content-type:application/json;charset=uft-8');
+        return json(compact('data', 'errorCode', 'errorMsg'));
+    }
 }

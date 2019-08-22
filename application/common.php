@@ -10,8 +10,8 @@ use think\Loader;
 
 /**
  * @desc 用于实例化逻辑(Logic)模型类
- * @param $model
- * @return Model
+ * @param $logicName
+ * @return object Logic
  */
 if (!function_exists('logic')) {
 
@@ -23,9 +23,22 @@ if (!function_exists('logic')) {
 }
 
 /**
+ * @desc 用于实例化(Model)模型类
+ * @param $model
+ * @return object Model
+ */
+if (!function_exists('model')) {
+
+    function model($modelName)
+    {
+        return Loader::model($modelName);
+    }
+}
+
+/**
  * @desc 用于实例化访问者(visitor)模型类
  * @param $model
- * @return Model
+ * @return object Visitor
  */
 if (!function_exists('visitor')) {
 
@@ -33,5 +46,24 @@ if (!function_exists('visitor')) {
     {
         $visitorName = $visitorName . 'Visitor';
         return Loader::model($visitorName, 'visitor');
+    }
+}
+
+/**
+ * desc 为SQL查询创建LIMIT条件
+ * @param int $page
+ * @param int $limit
+ * @return array
+ */
+if (!function_exists('buildLimit')) {
+
+    function buildLimit($page = 1, $limit = 10)
+    {
+        $page = $page >= 1 ? $page : 1;
+        $return = array(
+            'begin' => ($page - 1) * $limit,
+            'offset' => $limit
+        );
+        return $return;
     }
 }

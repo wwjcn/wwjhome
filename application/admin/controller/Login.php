@@ -33,9 +33,12 @@ class Login extends Base
      */
     public function doLogin()
     {
-        $user = logic('AdminUser')->login();
+        $userName = input('post.username/s');
+        $password = input('post.password/s');
+        $logic = logic('AdminUser');
+        $user = $logic->login($userName, $password);
         if (!$user) {
-            return $this->fetch();
+            return $this->fail($logic->getErrorMsg());
         }
         $this->_visitor->assign($user);
         return $this->ajaxReturn($user);
@@ -51,5 +54,12 @@ class Login extends Base
     {
         $this->_visitor->logout();
         return redirect(url('login/login'));
+    }
+
+    public function register()
+    {
+        $userName = input('post.username/s');
+        $password = input('post.password/s');
+        $user = logic('AdminUser')->registerAdmin($userName, $password);
     }
 }

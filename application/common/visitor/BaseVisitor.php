@@ -24,7 +24,7 @@ abstract class BaseVisitor
         } else {
             $this->_info = array(
                 'user_id' => 0,
-                'user_name' => ''
+                'username' => ''
             );
             $this->hasLogin = false;
         }

@@ -30,7 +30,7 @@
                     dataType:'JSON',
                     success:function(data){
                         console.log(data);
-                        if(data.errorCode='0'){
+                        if(data.errorCode === 0){
                             layer.msg('登陆成功',{icon:6});
                             console.log("{:url('index/index')}");
                             location.href = "{:url('index/index')}";
