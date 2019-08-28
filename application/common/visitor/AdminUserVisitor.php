@@ -44,13 +44,11 @@ class AdminUserVisitor extends BaseVisitor
     }
 
     //注册登录管理员信息
-    /*public function assign(array $user_info)
+    public function assign(array $userInfo)
     {
-        $this->info = $user_info;
-        if ($user_info) {
-            $this->has_login = true;
-        }
-    }*/
+        $this->info = $userInfo;
+        session($this->_infoKey, $userInfo);
+    }
 
     /**
      * 获取用户详细信息
@@ -59,7 +57,19 @@ class AdminUserVisitor extends BaseVisitor
      */
     public function _get_detail()
     {
-        return session($this->_infoKey);
+        return $this->_info;
+    }
+
+    /**
+     * 刷新管理员信息
+     *
+     * @return array
+     */
+    public function flush()
+    {
+        $info = model('AdminUser')->getInfo($this->_info['user_id']);
+        $this->assign($info);
+        return true;
     }
 
 }

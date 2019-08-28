@@ -7,7 +7,7 @@
  */
 namespace app\common\model;
 
-class AdminUser extends base
+class AdminUser extends Base
 {
     /**
      * @desc 新增数据
@@ -28,7 +28,7 @@ class AdminUser extends base
      */
     public function edit($pk, $data)
     {
-        return $this->where($this->pk, $pk)->update($data);
+        return $this->where($this->getPk(), $pk)->update($data);
     }
 
     /**

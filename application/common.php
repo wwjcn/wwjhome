@@ -67,3 +67,25 @@ if (!function_exists('buildLimit')) {
         return $return;
     }
 }
+
+/**
+ * desc 获取自建环境变量
+ * @param int $page
+ * @param int $limit
+ * @return array
+ */
+if (!function_exists('SEnv')) {
+
+    function SEnv($key , $val = null)
+    {
+        !isset($GLOBALS['S_ENV']) && $GLOBALS['S_ENV'] = array();
+        if ($val === null) {
+            /* 返回该指定环境变量 */
+            return isset($GLOBALS['S_ENV'][$key]) ? $GLOBALS['S_ENV'][$key] : null;
+        } else {
+            /* 设置指定环境变量 */
+            $GLOBALS['S_ENV'][$key] = $val;
+            return $val;
+        }
+    }
+}

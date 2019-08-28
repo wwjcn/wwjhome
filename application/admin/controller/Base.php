@@ -16,8 +16,7 @@ use think\View;
 class Base extends Controller
 {
     protected $_visitor = null;
-    protected $_loginController = 'login';
-//    protected $_loginAction = 'dologin';
+    protected $_outAuthController = array('login');
 
     /**
      * Desc: 控制器初始化
@@ -41,7 +40,7 @@ class Base extends Controller
      */
     public function _initVisitor()
     {
-        $this->_visitor = visitor('AdminUser');
+        $this->_visitor = SEnv('visitor', visitor('AdminUser'));
         return true;
     }
 
@@ -54,7 +53,7 @@ class Base extends Controller
         $request = Request::instance();
         $requestController = strtolower($request->controller());
 //        $requestAction = strtolower($request->action());
-        if (($requestController == $this->_loginController)
+        if (in_array($requestController, $this->_outAuthController)
             /*&& ($requestAction == $this->_loginAction)*/) {
             return true;
         }

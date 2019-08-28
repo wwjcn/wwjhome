@@ -67,7 +67,7 @@ abstract class BaseVisitor
      */
     protected function _get_detail()
     {
-        return 'detail';
+        return session($this->_infoKey);
     }
 
 
